@@ -4,7 +4,7 @@ Spree::LineItem.class_eval do
   after_save :create_digital_links, :if => :digital?
   
   def digital?
-    variant.digital?
+    variant.digital? || variant.product.master.digital?
   end
   
   private
@@ -13,7 +13,13 @@ Spree::LineItem.class_eval do
   def create_digital_links
     digital_links.delete_all
 
-    variant.digitals.each do |digital|
+    if variant.digital?
+      digital_list = variant.digitals
+    else
+      digital_list = variant.product.master.digitals
+    end
+
+    digital_list.each do |digital|
       self.quantity.times do
         digital_links.create!(:digital => digital)
       end      

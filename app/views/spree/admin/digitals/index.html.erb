@@ -1,20 +1,14 @@
 <%= render :partial => 'spree/admin/shared/product_sub_menu' %>
 <%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => "Digital Versions"} %>
 
+<h2>All Variants</h2>
+<%= render 'form', :variant => @product.master %>
+
+<h2>Inidividual Variants (will override All Variants file)</h2>
 <% if @product.has_variants? %>
 
   <% for variant in @product.variants do %>
     <%= render 'form', :variant => variant %>
   <% end %>
-
-<% else %>
-  This product has no variants.
-
- <% if @product.master.digital? %>
-    A digital version of this product currently exists:
-    <%= render @product.master.digitals %>
-  <% end %>
-
-  <%= render 'form', :variant => @product.master %>
 
 <% end %>
