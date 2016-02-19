@@ -11,6 +11,8 @@ it:
     mobi: Kindle eBook
     epub: ePub eBook
     pdf: pdf eBook
+    m4a: Audio M4A
+    zip: ZIP File
   digital_versions: Versioni Digitali
   new_file: Nuovo File
   spree:

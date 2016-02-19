@@ -11,6 +11,8 @@ en:
     mobi: Kindle eBook
     epub: ePub eBook
     pdf: pdf eBook
+    m4a: Audio M4A
+    zip: ZIP File
   digital_versions: Digital Versions
   downloads_reset: Digital Downloads Reset
   new_file: New File
